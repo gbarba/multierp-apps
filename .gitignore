@@ -1,5 +1,11 @@
 *.py[co]
 
+# Temporal files
+*~
+
+# Dolphin (KDE Browser)
+.directory
+
 # Packages
 *.egg
 *.egg-info
