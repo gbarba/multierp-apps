@@ -9,6 +9,8 @@ Requeriments
 Gestió de mòduls
 ----------------
 
+.. image:: https://raw.github.com/gbarba/multierp-apps/master/doc/diagrams/module_branch_management_diagram.png
+
 1. Cada mòdul **té un *mantenidor* assignat** (requerit). És l'encarregat de vetllar perquè la informació que figura al sistema respecte al mòdul sigui **correcta** i el més **completa** possible.
   a) Dóna d'alta (¿o només valida les altes que fa la gent?) noves branques... ***gestiona branques***
   b) Hi ha d'haver algun tipus de mecanisme de *control* (opinió) sobre el mantenidor per *forçar* a considerar de substituir-lo: comentaris i/o vots sobre la ficha del mantenidor (associats a l'usuari o al mòdul+usuari; mantenidor del mòdul en el moment del comentari)
@@ -53,6 +55,8 @@ Dependències del mòdul
 Perfils d'usuari
 ----------------
 
+.. image:: https://raw.github.com/gbarba/multierp-apps/master/doc/diagrams/user_profile_diagram.png
+
 1. Des del perfil d'usuari accedim a la llista de:
   a) Mòduls del que és *mantenidor*
   b) Branques de les que és *creador* (¿o també li diem *mantenidor*?)
@@ -62,7 +66,6 @@ Perfils d'usuari
     (i) ¿També quan s'afegeix? crec que no fa falta
 
 
-------
 Avisos
 ------
 
@@ -73,9 +76,15 @@ En principi no són missatges *usuari a usuari*, per tant tampoc hi ha *resposte
 2. L'usuari pot configurar si rep un e-mail quan rep un avís
 
 
-----------
-Comentaris
-----------
+----------------------
+Funcionalitats socials
+----------------------
+
+.. image:: https://raw.github.com/gbarba/multierp-apps/master/doc/diagrams/social_functions_diagram.png
+
+
+Comentaris a mòduls i branques
+------------------------------
 
 1. Els comentaris van associats a un mòdul i ¿opcionalment? a una branca
   a) Des del mòdul es pot veure l'arbre de comentaris complet
@@ -85,17 +94,17 @@ Comentaris
 1. ¿Un comentari té etiquetes i hi ha un arxiu de comentaris per etiqueta que permetria minifòrums pels mòduls?
 
 
---------------------------
 Informes de compatibilitat
 --------------------------
 
 Compatibilitat entre branques de servidor i mòdul
--------------------------------------------------
+.................................................
+
 TODO: 
 
 
 Compatibilitat entre mòduls
----------------------------
+...........................
 
 1. Obligatòriament *l'informe* ha de ser especificant branques d'un i altre mòdul (l'usuari que no sap això no ens interessa)
 2. ¿És obligatori l'usuari o és una informació que pot quedar oculta?
