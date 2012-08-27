@@ -2,8 +2,40 @@
 Especificació MultiERP Apps
 ===========================
 
-Requeriments
-============
+Aplicació web que permet **explorar** els mòduls disponibles per diferents
+versions d'OpenERP i Tryton (¿un mòdul pot ser per diverses versions o són
+*llistats separats*? ¿quines versions de servidor tractem: minor o major?).
+
+El sistema complementa la *metainformació* dels fitxers __tryton__.py i
+__openerp__.py amb dades extra que genera ell mateix, que complementen els
+mantenidors (veurem que hi ha mantenidors de mòduls) o que generen els propis
+usuaris a partir *d'eines socials*. Aquesta informació extra, a més d'enriquir
+la fitxa del mòdul, genera noves formes d'explorar els mòduls (per popularitat,
+per compatibilitat...) i busca potenciar (visibilitzar) els autors en un
+context de **meritocràcia**.
+
+El sitema **suporta branques** pels mòduls i el servidor; diferents *versions*
+d'un mateix codi. Aquestes tenen associats Sistemes de Control de Versions
+(VCS), fitxers de *releases* (.egg, .zip...) i/o webapps de gestió de projectes
+(github, bitbucket...).
+
+Els usuaris poden afegir **informació de compatibilitat** entre branques de
+mòduls i de servidor, i entre branques d'un mòdul i les seves dependències.
+
+El sistema facilita **obtenir el codi complet** (fer un desplegament) de
+servidor i mòduls (o d'una selecció de mòduls) seleccionant les branques
+prioritzant diferents criteris: oficial, recomanat, màxima compatibilitat,
+popularitat...
+
+Per operar amb el sistema i explotar totes les funcionalitats, a més de la
+interficie web el sistema **oferirà una API** i un **client per línia de
+comandes**.
+
+Tot el projecte és Software Lliure. Llicència ¿GPL3?
+
+
+Funcionalitats (requeriments)
+=============================
 
 ----------------
 Gestió de mòduls
@@ -89,23 +121,44 @@ Comentaris a mòduls i branques
 1. Els comentaris van associats a un mòdul i ¿opcionalment? a una branca
   a) Des del mòdul es pot veure l'arbre de comentaris complet
   b) Des de la branca es mostren dos pestanyes: comentaris de la branca (filtrats) i del mòdul (tots)
-  c) ¿Un arxiu de comentaris del mòdul **per branca**?
+  c) #TODECIDE: Un arxiu de comentaris del mòdul **per branca**?
   d) #TODO: Discus permetria això?
-1. ¿Un comentari té etiquetes i hi ha un arxiu de comentaris per etiqueta que permetria minifòrums pels mòduls?
+1. #TODECIDE: Un comentari té etiquetes
+  a) hi ha un arxiu de comentaris per etiqueta que permetria minifòrums pels mòduls
 
 
-Informes de compatibilitat
---------------------------
+Compatibility Reports
+---------------------
 
-Compatibilitat entre branques de servidor i mòdul
-.................................................
+Based on how the Wordpress Extension Web resolves this question.
 
-TODO: 
+1. The reports are **between branches**, and specifying the version for each
+   branch. The users which doesn't have this information aren't our target.
+2. Types:
+   * Between Module and its Server
+   * Between Module and its dependencies
+   * Between Modules (no dependant modules): this type probably will only be
+     *no compability report*; the system must to take care about this.
+3. The system will calculate and show the *average score of compatibility*, the
+  *number of reports* and will assign a *flag* (red, yellow or green) taking
+  care this two values.
+  a) The system will be able to select the *most compatible branch* (for a
+  module set) and advice about *compatibility problems*.
+4. #TODECIDE: The author of report (User) is required (I think yes)? This info
+   is private (not visible for anonymous, only for manainers, for anybody)?
 
 
-Compatibilitat entre mòduls
-...........................
+Technology
+==========
 
-1. Obligatòriament *l'informe* ha de ser especificant branques d'un i altre mòdul (l'usuari que no sap això no ens interessa)
-2. ¿És obligatori l'usuari o és una informació que pot quedar oculta?
+#TODECIDE: the **bold** options are my preferences.
+
+* WebApp:
+    * **Flask**
+    * Django
+* API:
+  * **RESTful + JSON**
+  * XML-RPC
+* Client: Python script
+
 
