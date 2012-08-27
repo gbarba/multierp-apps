@@ -2,79 +2,87 @@
 Especificació MultiERP Apps
 ===========================
 
-
 Requeriments
 ============
 
 ----------------
 Gestió de mòduls
 ----------------
-# Cada mòdul **té un *mantenidor* assignat** (requerit). És l'encarregat de vetllar perquè la informació que figura al sistema respecte al mòdul sigui **correcta** i el més **completa** possible.
-## Dóna d'alta (¿o només valida les altes que fa la gent?) noves branques... ***gestiona branques***
-## Hi ha d'haver algun tipus de mecanisme de *control* (opinió) sobre el mantenidor per *forçar* a considerar de substituir-lo: comentaris i/o vots sobre la ficha del mantenidor (associats a l'usuari o al mòdul+usuari; mantenidor del mòdul en el moment del comentari)
-## Els administradors del site tenen l'última paraula en la substitució de mantenidors de mòduls.
-### ¿autosubstitució? avisos marcats de forma diferent per facilitar l'aprovació o directes sense aprovació
-# Un usuari pot donar d'alta un nou mòdul (¿cal validació? ¿condicionat al *status* de l'usuari rollo *commiters*) amb la seva branca (obligatori)
-## Automàticament queda assignat com a mantenidor del mòdul i la branca com a *per defecte*
-# Un mòdul es pot desactivar (eliminar sense eliminar)
-# Un mòdul ha de tenir com a mínim una branca, però el camp no és requerit; si no té cap branca queda en estat *warning* (o algo així)
-# Un mòdul té una **branca per defecte** que la selecciona el *mantenidor* del mòdul al seu criteri
-## Si la *branca per defecte* s'elimina o es desactiva ¿o es queda en *warning*?, el mòdul queda en estat *warning* (el mateix o diferent que si no té branques?)
+
+1. Cada mòdul **té un *mantenidor* assignat** (requerit). És l'encarregat de vetllar perquè la informació que figura al sistema respecte al mòdul sigui **correcta** i el més **completa** possible.
+  a) Dóna d'alta (¿o només valida les altes que fa la gent?) noves branques... ***gestiona branques***
+  b) Hi ha d'haver algun tipus de mecanisme de *control* (opinió) sobre el mantenidor per *forçar* a considerar de substituir-lo: comentaris i/o vots sobre la ficha del mantenidor (associats a l'usuari o al mòdul+usuari; mantenidor del mòdul en el moment del comentari)
+  c) Els administradors del site tenen l'última paraula en la substitució de mantenidors de mòduls.
+    (i) ¿autosubstitució? avisos marcats de forma diferent per facilitar l'aprovació o directes sense aprovació
+2. Un usuari pot donar d'alta un nou mòdul (¿cal validació? ¿condicionat al *status* de l'usuari rollo *commiters*) amb la seva branca (obligatori)
+  a) Automàticament queda assignat com a mantenidor del mòdul i la branca com a *per defecte*
+3. Un mòdul es pot desactivar (eliminar sense eliminar)
+4. Un mòdul ha de tenir com a mínim una branca, però el camp no és requerit; si no té cap branca queda en estat *warning* (o algo així)
+5. Un mòdul té una **branca per defecte** que la selecciona el *mantenidor* del mòdul al seu criteri
+  a) Si la *branca per defecte* s'elimina o es desactiva ¿o es queda en *warning*?, el mòdul queda en estat *warning* (el mateix o diferent que si no té branques?)
 
 
 Gestió de branques
 ------------------
+
 Les branques representen una versió del mòdul, ja sigui un fork d'una existent o una nova (i única)
-# Un usuari pot donar d'alta una branca (¿cal validació? ¿condicionat al *status* de l'usuari rollo *commiters*)
-## Una braca té un *número de versió*, un *número de versió de servidor* i un *usuari creador*
-### ¿opcionalment? una relació amb la branca de servidor recomanada
-#### La *Branca de servidor recomanada* l'estableix el creador però la pot canviar el mantenidor del mòdul. Això genera un avís al *mantenidor* en el primer cas, i al *creador* de la branca en el segón.
-## El número de versió pot anar-se actualitzant
-## opcional? Una branca té tipus i URL (o el mètode que toqui) de VCS (git, bzr, svn...)
-## opcional? Una branca té fitxers descarregables (zip, tgz...) i el sistema genera un link automàtic a l'últim
-### ¿Forçar que el nom s'avingui a notació estructurada NOM_DEL_MODUL.VERSIO.EXTENSIÓ? ¿Cal una gestió de releases?
-## opcional? una branca té info per 'pip' i per altres gestors de paquets
-## ¿El *mantenidor* o *creador* poden marcar el *sistema* recomanat?
-## Marcar d'alguna forma cada *tipus* amb: *desenvolupament*, *llest per producció*, *release*, *stable*
+
+1. Un usuari pot donar d'alta una branca (¿cal validació? ¿condicionat al *status* de l'usuari rollo *commiters*)
+2. Una braca té un *número de versió*, un *número de versió de servidor* i un *usuari creador*
+  a) ¿opcionalment? una relació amb la branca de servidor recomanada
+    (i) La *Branca de servidor recomanada* l'estableix el creador però la pot canviar el mantenidor del mòdul. Això genera un avís al *mantenidor* en el primer cas, i al *creador* de la branca en el segón.
+3. El número de versió pot anar-se actualitzant
+4. opcional? Una branca té tipus i URL (o el mètode que toqui) de VCS (git, bzr, svn...)
+5. opcional? Una branca té fitxers descarregables (zip, tgz...) i el sistema genera un link automàtic a l'últim
+  a) ¿Forçar que el nom s'avingui a notació estructurada NOM_DEL_MODUL.VERSIO.EXTENSIÓ? ¿Cal una gestió de releases?
+6. opcional? una branca té info per 'pip' i per altres gestors de paquets
+7. ¿El *mantenidor* o *creador* poden marcar el *sistema* recomanat?
+8. Marcar d'alguna forma cada *tipus* amb: *desenvolupament*, *llest per producció*, *release*, *stable*
 
 
 Dependències del mòdul
 ----------------------
-# Un mòdul té un llistat de dependències
-# Una dependència té un mòdul objectiu
-# Una dependència té una branca de mòdul objectiu recomanada
-## La gestiona el mantenidor de la branca i dels mòduls
+
+1. Un mòdul té un llistat de dependències
+2. Una dependència té un mòdul objectiu
+3. Una dependència té una branca de mòdul objectiu recomanada
+  a) La gestiona el mantenidor de la branca i dels mòduls
 
 
 ----------------
 Perfils d'usuari
 ----------------
-# Des del perfil d'usuari accedim a la llista de:
-## Mòduls del que és *mantenidor*
-## Branques de les que és *creador* (¿o també li diem *mantenidor*?)
-## Mòduls (branques) del que *autor* (¿diferenciem *creador* de *autor*?). No té pq ser el mateix que l'anterior. Pots tenir una branca per manteir 4 canvis/bugfix però no considerar-te *autor*
-# El perfil té un històric que s'alimenta ¿d'*avisos* d'un(s) tipu(s) concret? que estan relacionats amb mòdul [i branca] per poder fer filtratges i tal. Els diferents *subtipus* (els següents exemples) també serien un camp per filtrar
-## Exemple: Aquest usuari va ser autor d'aquesta branca (i per tant, mòdul) fins el X (quan es treu un *autor* d'un mòdul)
-### ¿També quan s'afegeix? crec que no fa falta
+
+1. Des del perfil d'usuari accedim a la llista de:
+  a) Mòduls del que és *mantenidor*
+  b) Branques de les que és *creador* (¿o també li diem *mantenidor*?)
+  c) Mòduls (branques) del que *autor* (¿diferenciem *creador* de *autor*?). No té pq ser el mateix que l'anterior. Pots tenir una branca per manteir 4 canvis/bugfix però no considerar-te *autor*
+2. El perfil té un històric que s'alimenta ¿d'*avisos* d'un(s) tipu(s) concret? que estan relacionats amb mòdul [i branca] per poder fer filtratges i tal. Els diferents *subtipus* (els següents exemples) també serien un camp per filtrar
+  a) Exemple: Aquest usuari va ser autor d'aquesta branca (i per tant, mòdul) fins el X (quan es treu un *autor* d'un mòdul)
+    (i) ¿També quan s'afegeix? crec que no fa falta
 
 
 ------
 Avisos
 ------
+
 El sistema pot generar avisos a l'estil de les **notificacions** d'OpenERP. Van dirigides a un usuari i aquest té una *safata d'entrada*.
 En principi no són missatges *usuari a usuari*, per tant tampoc hi ha *respostes*. Si s'habilités aquest tipus de missatges ¿fem que **puguin** ser públiques i series *Converses*? (això es pot fer amb fòrums o coses així)
-# Quan es genera algun *warning* s'envia un avís al mantenidor del mòdul.
-# L'usuari pot configurar si rep un e-mail quan rep un avís
+
+1. Quan es genera algun *warning* s'envia un avís al mantenidor del mòdul.
+2. L'usuari pot configurar si rep un e-mail quan rep un avís
+
 
 ----------
 Comentaris
 ----------
-# Els comentaris van associats a un mòdul i ¿opcionalment? a una branca
-## Des del mòdul es pot veure l'arbre de comentaris complet
-## Des de la branca es mostren dos pestanyes: comentaris de la branca (filtrats) i del mòdul (tots)
-## ¿Un arxiu de comentaris del mòdul **per branca**?
-## #TODO: Discus permetria això?
-# ¿Un comentari té etiquetes i hi ha un arxiu de comentaris per etiqueta que permetria minifòrums pels mòduls?
+
+1. Els comentaris van associats a un mòdul i ¿opcionalment? a una branca
+  a) Des del mòdul es pot veure l'arbre de comentaris complet
+  b) Des de la branca es mostren dos pestanyes: comentaris de la branca (filtrats) i del mòdul (tots)
+  c) ¿Un arxiu de comentaris del mòdul **per branca**?
+  d) #TODO: Discus permetria això?
+1. ¿Un comentari té etiquetes i hi ha un arxiu de comentaris per etiqueta que permetria minifòrums pels mòduls?
 
 
 --------------------------
@@ -88,7 +96,7 @@ TODO:
 
 Compatibilitat entre mòduls
 ---------------------------
-# Obligatòriament *l'informe* ha de ser especificant branques d'un i altre mòdul (l'usuari que no sap això no ens interessa)
-# ¿És obligatori l'usuari o és una informació que pot quedar oculta?
 
+1. Obligatòriament *l'informe* ha de ser especificant branques d'un i altre mòdul (l'usuari que no sap això no ens interessa)
+2. ¿És obligatori l'usuari o és una informació que pot quedar oculta?
 
