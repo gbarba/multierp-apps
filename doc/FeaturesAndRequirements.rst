@@ -8,7 +8,7 @@ Features & Requirements
 Module Management
 =================
 
-.. image:: diagrams/module_branch_management_diagram.png
+.. image:: https://github.com/gbarba/multierp-apps/raw/master/doc/diagrams/module_branch_management_diagram.png
 
 #. Each module has **an user assigned as *mantainer*** (required). He/She is
    responsible to mantain the information about module **correctly** and
@@ -22,6 +22,7 @@ Module Management
       #TODECIDE comments and/or votes over the mantainer (associated to the
       user or to the user+module), *abuse* report...
    #. A *mantainer* can ask to be replaced
+
       #. #TODECIDE if a mantainer propose a user to replace him, the
          substitution is automatic
 
@@ -31,7 +32,8 @@ Module Management
 #. There is Server Versions which are as the *series* of Launchpad for all
    modules
 
-   #. #TODECIDE: a module can be for multiple versions or server modules are different?
+   #. #TODECIDE: a module can be for multiple versions or server modules are
+      different?
    #. #TODECIDE: Which server versions have their own serie: minor or **major**
 
 #. A module has one or more branches (see `Branch Management`_) which are
