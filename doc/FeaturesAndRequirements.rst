@@ -8,48 +8,121 @@ Features & Requirements
 Module Management
 =================
 
-.. image:: https://raw.github.com/gbarba/multierp-apps/master/doc/diagrams/module_branch_management_diagram.png
+.. image:: diagrams/module_branch_management_diagram.png
 
-#. Cada mòdul **té un *mantenidor* assignat** (requerit). És l'encarregat de vetllar perquè la informació que figura al sistema respecte al mòdul sigui **correcta** i el més **completa** possible.
+#. Each module has **an user assigned as *mantainer*** (required). He/She is
+   responsible to mantain the information about module **correctly** and
+   **completly**.
 
-   #. Dóna d'alta (¿o només valida les altes que fa la gent?) noves branques... ***gestiona branques***
-   #. Hi ha d'haver algun tipus de mecanisme de *control* (opinió) sobre el mantenidor per *forçar* a considerar de substituir-lo: comentaris i/o vots sobre la ficha del mantenidor (associats a l'usuari o al mòdul+usuari; mantenidor del mòdul en el moment del comentari)
-   #. Els administradors del site tenen l'última paraula en la substitució de mantenidors de mòduls.
+   #. Only the *site mantainers* can replace the *module mantainer* (as it is
+      required, it must to be replaced, not removed)
+   #. There is a **control (or opinion) mechanism** about *mantainer* to allow
+      users to *force* the *Site Mantainers* to consider to replace a
+      *mantainer* (because he/she aren't doing his work or is doing bad):
+      #TODECIDE comments and/or votes over the mantainer (associated to the
+      user or to the user+module), *abuse* report...
+   #. A *mantainer* can ask to be replaced
+      #. #TODECIDE if a mantainer propose a user to replace him, the
+         substitution is automatic
 
-      #. ¿autosubstitució? avisos marcats de forma diferent per facilitar l'aprovació o directes sense aprovació
+#. A module could be deactivated (as in OpenERP, it's like deleted but
+   mantaining the data in the system)
 
-#. Un usuari pot donar d'alta un nou mòdul (¿cal validació? ¿condicionat al *status* de l'usuari rollo *commiters*) amb la seva branca (obligatori)
+#. There is Server Versions which are as the *series* of Launchpad for all
+   modules
 
-   #. Automàticament queda assignat com a mantenidor del mòdul i la branca com a *per defecte*
+   #. #TODECIDE: a module can be for multiple versions or server modules are different?
+   #. #TODECIDE: Which server versions have their own serie: minor or **major**
 
-#. Un mòdul es pot desactivar (eliminar sense eliminar)
-#. Un mòdul ha de tenir com a mínim una branca, però el camp no és requerit; si no té cap branca queda en estat *warning* (o algo així)
-#. Un mòdul té una **branca per defecte** que la selecciona el *mantenidor* del mòdul al seu criteri
+#. A module has one or more branches (see `Branch Management`_) which are
+   mantained by *module mantainer* and *branch mantainer*.
 
-   #. Si la *branca per defecte* s'elimina o es desactiva ¿o es queda en *warning*?, el mòdul queda en estat *warning* (el mateix o diferent que si no té branques?)
+   #. If a module doesn't has any branch (because they has been
+      deleted/deactivated) it's state changes to *warning* and an *advice* is
+      sent to the mantainer
+   #. The modules have a **default branch** (required if there is some branch)
+      which is selected by the *mantainer* under his own criteria.
+
+      #. If the *default branch* is deleted/deactivated, the module state
+         change to *warning* (#TODECIDE the same or diferent than if it has no
+         branches?) and an *advice* is sent to the mantainer
+
+#. An User can register a new module. He/she will be the *mantainer*
+
+   #. #TODECIDE: It requires validation? it depends on the *user status*
+      (something like *commiters group*, based on Karma...)
+   #. It's required to set up a branch when register a new module. This branch
+      will be the *default branch* automatically
+
+#. There is Server Versions which are as the *series* of Launchpad for all
+   modules
+
+   #. #TODECIDE: Which server versions have their own serie: minor or **major**
+   #. #TODECIDE: a module can be for multiple versions/series (if not, for each
+      Server Version a new module must to be registered)
+
+      #. there is a *default branch* for each serie
+      #. there is a *default serie* for the module
 
 
-Gestió de branques
-------------------
+Branch Management
+-----------------
 
-Les branques representen una versió del mòdul, ja sigui un fork d'una existent o una nova (i única)
+The branches represents a version of a module. It could be a fork of existent
+version (bugfixing) or a new version (improvement, extension)
 
-#. Un usuari pot donar d'alta una branca (¿cal validació? ¿condicionat al *status* de l'usuari rollo *commiters*)
-#. Una braca té un *número de versió*, un *número de versió de servidor* i un *usuari creador*
+#. A branch has this fields: #TODECIDE: Which of all of them are required
+   fields?
 
-   #. ¿opcionalment? una relació amb la branca de servidor recomanada
+   #. Version Number, Server Version Number and Creator User
 
-      #. La *Branca de servidor recomanada* l'estableix el creador però la pot canviar el mantenidor del mòdul. Això genera un avís al *mantenidor* en el primer cas, i al *creador* de la branca en el segón.
+      #. The Version Number will be updated
 
-#. El número de versió pot anar-se actualitzant
-#. opcional? Una branca té tipus i URL (o el mètode que toqui) de VCS (git, bzr, svn...)
-#. opcional? Una branca té fitxers descarregables (zip, tgz...) i el sistema genera un link automàtic a l'últim
+   #. #TODECIDE: Recomended Server Branch
 
-   #. ¿Forçar que el nom s'avingui a notació estructurada NOM_DEL_MODUL.VERSIO.EXTENSIÓ? ¿Cal una gestió de releases?
+      #. The Recomended Server Branch is set by the creator of module but it
+         also could be changed by the Module Mantainer
+      #. When this field is modified by the *module mantanier* or *branch
+         mantainer (creator)*, it generates an *advice* for the other one.
 
-#. opcional? una branca té info per 'pip' i per altres gestors de paquets
-#. ¿El *mantenidor* o *creador* poden marcar el *sistema* recomanat?
-#. Marcar d'alguna forma cada *tipus* amb: *desenvolupament*, *llest per producció*, *release*, *stable*
+   #. Version Control System (VCS)
+
+      #. #TODECIDE Supported VCS: git, hg, bzr, svn...
+
+   #. Project Management System:
+
+      #. #TODECIDE Supported PM Systems: github, bitbucket, trac...
+
+   #. Package Repositories:
+
+      #. A module could be associated to multiple PR
+      #. #TODECIDE Supported PR: PyPi, apt...
+
+   #. Release Files:
+
+      #. Multiple files (file types) per release
+      #. #TODECIDE Supported file types: .egg, .zip, .tar.gz
+      #. The system has a permanent link to the last release for each module
+         which has any release files.
+      #. #TODECIDE The name of release file must to follow an structured format
+         that includes the Version Number.
+
+   #. Documentation URL.
+
+   #. State: #TODECIDE: see the launchpad states
+
+#. An User can register a new branch
+
+   #. #TODECIDE: It requires validation? it depends on the *user status* (something like *commiters group*, based on Karma...)
+
+#. The system periodically checks that all URLs don't crash and the version of
+   different release systems (files, Package Repositories...) is the last
+   version of the module.
+
+   #. The system mark as *deprecated* each of these information that isn't
+      correct: it disables the link or download system and reduce the
+      punctuation of mantainer.
+
 
 
 Dependències del mòdul
@@ -152,5 +225,6 @@ Technology
   * XML-RPC
 
 * Client: Python script
+* Deployment: buildout
 
 
