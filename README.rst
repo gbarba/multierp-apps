@@ -65,7 +65,7 @@ project.
 
 You could find the working documents in **doc** directory:
 
-* `FeaturesAndRequirements.rst <doc/FeaturesAndRequirements.html>`_:
+* `FeaturesAndRequirements.rst <doc/FeaturesAndRequirements.rst>`_:
   Specification of the Features and Requirements of the system from a User
   prespective.
 * (Comming soon) *UserCases.rst*
